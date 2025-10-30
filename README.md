@@ -1,5 +1,3 @@
----
-
 ````markdown
 # 🧠 SciTag — The Smart Journal Formatter
 
