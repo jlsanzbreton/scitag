@@ -1,0 +1,119 @@
+/* Geogaceta layout CSS (print-first with workable on-screen preview) */
+
+/* ---- Page setup ---- */
+@page {
+  size: A4;
+  margin-top: 25mm;
+  margin-bottom: 25mm;
+  margin-left: 15mm;
+  margin-right: 15mm;
+}
+
+:root {
+  /* Content box width approximated to Geogaceta's 175 mm; columns computed from this */
+  --content-width: 175mm;
+  --gap-abstracts: 5mm;
+  --gap-body: 4mm;
+  --base-font: 10.5pt; /* body equivalent */
+  --caption-font: 9pt;
+  --line-height: 1.25;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: var(--base-font);
+  line-height: var(--line-height);
+  color: #111;
+}
+
+/* ---- Front matter ---- */
+.article-title {
+  font-weight: 700;
+  font-size: 16pt;
+  line-height: 1.2;
+  margin: 0 0 6pt 0;
+}
+
+.article-authors { margin: 0 0 8pt; }
+.article-affiliations { margin: 0 0 10pt; font-size: 9.5pt; }
+
+/* Conventions for conjunction before last author */
+.lang-es .conj-last::before { content: " y "; }
+.lang-en .conj-last::before { content: " and "; }
+
+/* ---- Abstracts block: two columns ---- */
+.section--abstracts {
+  width: var(--content-width);
+  column-count: 2;
+  column-gap: var(--gap-abstracts);
+  margin: 8pt 0 12pt 0;
+}
+.section--abstracts .abstract-en { font-style: italic; }
+.section--abstracts .keywords { font-style: normal; font-size: 9.5pt; }
+
+/* ---- Main article body: three columns ---- */
+.article-body {
+  width: var(--content-width);
+  column-count: 3;
+  column-gap: var(--gap-body);
+}
+
+.article-body p { widows: 2; orphans: 2; }
+
+/* ---- Headings ---- */
+.h1, .h2, .h3 {
+  break-after: avoid;
+  page-break-after: avoid;
+  font-weight: 700;
+  margin: 6pt 0 4pt;
+}
+.h1 { font-size: 12pt; }
+.h2 { font-size: 11pt; }
+.h3 { font-size: 10.5pt; font-style: italic; }
+
+/* ---- Figures & tables ---- */
+.figure, .table { break-inside: avoid; }
+.figcaption, .table-caption {
+  font-size: var(--caption-font);
+  line-height: 1.2;
+  break-inside: avoid;
+  margin-top: 2pt;
+}
+
+/* Bilingual captions: first line = ES, second = EN (or vice versa) */
+.figcaption .cap-es + .cap-en,
+.table-caption .cap-es + .cap-en { display: block; margin-top: 1pt; }
+
+/* Column spanning guidance: by default items flow within a single column. */
+/* Use .span-all to place a block across all three columns (e.g., very wide figures). */
+.span-all { column-span: all; }
+
+/* Recommended width helpers when using .span-all: */
+.figure--full { width: var(--content-width); margin: 0 auto; }
+.figure--two-thirds { width: calc(var(--content-width) * 0.66); margin: 0 auto; }
+.figure--one-column { width: 100%; }
+
+/* Maps should include coordinates; visually reserve space for scale bar */
+.figure--map .scale-bar { height: 10px; margin-top: 4px; }
+
+/* ---- References ---- */
+.references {
+  column-span: all; /* keep reference list clean across full width */
+  width: var(--content-width);
+}
+.references .ref {
+  display: block;
+  margin: 2pt 0 4pt;
+}
+.references .doi { display: block; }
+
+/* ---- Acknowledgements & contributions ---- */
+.section--acknowledgements, .section--contributions {
+  column-span: all;
+  width: var(--content-width);
+}
+
+/* ---- Print friendliness ---- */
+@media print {
+  a[href]::after { content: ""; } /* hide raw URLs */
+}

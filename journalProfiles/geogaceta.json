@@ -1,0 +1,128 @@
+{
+  "journal": "Geogaceta",
+  "profileVersion": "2023-05-25",
+  "sources": ["Plantilla_MANUSCRITO_jul_2023", "Instrucciones_autores_2023-05-25"],
+  "languageOptions": ["es", "en"],
+  "page": {
+    "maxPages": 4,
+    "charsPerPageApprox": 6000,
+    "allowQuarterPageOverflow": true,
+    "margins_mm": { "top": 25, "bottom": 25, "left": 15, "right": 15 },
+    "columns": { "abstracts": 2, "body": 3 }
+  },
+  "frontMatter": {
+    "title": { "required": true, "language": "match_main_text" },
+    "titleEnglishWhenSpanish": true,
+    "authors": {
+      "requireFullGivenNames": true,
+      "correspondingMarkedWithAsterisk": true,
+      "affiliationsWithEmails": true,
+      "lastAuthorConjunction": { "es": "y", "en": "and" }
+    },
+    "doiLine": { "required": false },
+    "issueLine": { "required": false }
+  },
+  "abstracts": {
+    "bilingual": true,
+    "maxWords": 200,
+    "layout": "two-columns",
+    "abstractFormatting": { "en": { "italic": true }, "es": { "italic": false } },
+    "keywords": { "max": 5, "bilingual": true }
+  },
+  "sections": {
+    "required": ["Introducción", "Conclusiones", "Referencias"],
+    "recommended": ["Metodología"],
+    "allowedExamples": [
+      "Marco Tectónico", "Situación Geológica", "Resultados", "Discusión",
+      "Agradecimientos", "Contribución de los autores"
+    ]
+  },
+  "figures": {
+    "numbering": "arabic",
+    "subfigureLabels": "A,B,C,...",
+    "mustBeCitedInText": true,
+    "captionsBilingual": true,
+    "mapRequirements": { "requireGeographicCoordinates": true },
+    "scaleBarRecommended": true,
+    "fontRecommendation": "Arial",
+    "placementGuidance": {
+      "threeColumnFigures": { "place": ["top", "bottom"], "avoidMiddle": true }
+    },
+    "colorPolicy": {
+      "printColorAvailableWithCost": true,
+      "bwLegibilityRequired": true,
+      "addColorOnWebNoteES": "Ver figura en color en la web.",
+      "addColorOnWebNoteEN": "See color figure in the web."
+    }
+  },
+  "tables": {
+    "numbering": "roman",
+    "preferImageSubmission": true,
+    "legibilityResponsibility": "authors"
+  },
+  "citationsInText": {
+    "inSentence": {
+      "patternExamplesES": [
+        "Díaz García (1993)",
+        "Díaz Molina y Tortosa (1996)",
+        "Córdoba et al. (1987)"
+      ],
+      "notes": ["et al. en cursiva"]
+    },
+    "parenthetical": {
+      "ordering": "chronological",
+      "separator": ";",
+      "exampleES": "Córdoba et al., 1987; Díaz García, 1993; Díaz Molina y Tortosa, 1996",
+      "conjunctionES": "y",
+      "conjunctionEN": "and",
+      "etAlItalic": true
+    },
+    "decimalSeparator": { "es": ",", "en": "." },
+    "thousandSeparator": "spaceOrNone"
+  },
+  "references": {
+    "maxEntries": 20,
+    "omitArticleTitlesFor": ["journal", "conferenceProceedings"],
+    "includeTitlesFor": ["book", "editedBook", "thesis", "maps"],
+    "orderingRules": [
+      "Primary: alphabetical by first author",
+      "For single-author: chronological",
+      "For two authors: alphabetical by coauthor then chronological",
+      "For three or more authors: chronological"
+    ],
+    "doi": { "requiredIfAvailable": true, "printAsLinkBelowEachRef": true, "allowShortDOI": true }
+  },
+  "acknowledgements": {
+    "fundingRequiredPhraseIfNone": true,
+    "suggestThankReviewers": true
+  },
+  "authorsContribution": {
+    "enabled": true,
+    "fields": [
+      "Estructura del trabajo", "Metodología", "Adquisición de datos", "Edición",
+      "Figuras", "Revisión del manuscrito", "Investigación/Análisis",
+      "Coordinación", "Supervisión"
+    ]
+  },
+  "sfa": {
+    "weights": {
+      "structure": 0.2,
+      "abstracts": 0.1,
+      "layout3cols": 0.1,
+      "figuresTables": 0.15,
+      "references": 0.2,
+      "languageTone": 0.1,
+      "metadata": 0.05,
+      "lengthRatios": 0.05,
+      "graphicsLegibility": 0.05
+    },
+    "blockingRules": {
+      "missingRequiredSections": true,
+      "missingBilingualAbstracts": true,
+      "bodyNotThreeColumns": true,
+      "uncitedFiguresOrNoCaptions": true,
+      "citationsReferencesMismatch": true,
+      "incompleteMetadata": true
+    }
+  }
+}
