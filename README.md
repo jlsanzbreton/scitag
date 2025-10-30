@@ -1,8 +1,3 @@
-Perfecto, Jose ⚙️
-Aquí tienes el **`README.md` inicial** para el nuevo repositorio `SciTag`.
-Está diseñado para que puedas usarlo como *readme de lanzamiento* (MVP con visión, propósito, comandos y hoja de ruta).
-Incluye badges, tagline y estructura base adaptada a una PWA o CLI, según evolucione.
-
 ---
 
 ````markdown
